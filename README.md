@@ -1,5 +1,6 @@
 # Note:
 The project contains two android apps and some code deployed on VM. The code on VM is in this repository and the both Android projects couldn't be added to repository, so we are sharing them separately. Here's the links to the public repositories:
+https://github.com/shobhit-coder/StaySafeResQ
 
 # Team Adroit - StaySafe
 
