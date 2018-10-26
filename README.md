@@ -1,3 +1,6 @@
+# Note:
+The project contains two android apps and some code deployed on VM. The code on VM is in this repository and the both Android projects couldn't be added to repository, so we are sharing them separately. Here's the links to the public repositories:
+
 # Team Adroit - StaySafe
 
 Most of the lives lost during any natural disaster can be avoided by making the right decisions right before the disaster strikes and by taking the necessary precautions. During any natural calamity it’s the unpreparedness and the lack of knowledge that actually cost human life. Knowing about the type of disaster is not enough. It’s the precautionary steps along with certain protocols that is the key to minimising lives lost.
