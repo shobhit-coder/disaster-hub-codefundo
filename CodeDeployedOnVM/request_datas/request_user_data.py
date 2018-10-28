@@ -18,7 +18,7 @@ def request_user_location(server,database,username,password,driver):
     userlat = 0.0
     userlon = 0.0
 
-    cursor.execute("select * from location2 where id = \'7204432197\';")
+    cursor.execute("select * from location2 where id = \'917204432197\';")
     row = cursor.fetchone()
 
     userlat = float(row[1])
