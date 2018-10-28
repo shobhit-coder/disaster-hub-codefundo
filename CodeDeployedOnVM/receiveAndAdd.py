@@ -53,36 +53,45 @@ while(True):
         flag=0
         row = cursor.fetchone()
         while row:
+            # print("row0 is"+str(row[0])+" "+str(row[1])+" "+str(row[2])+" "+str(row[3])+" "+str(row[4]))
+            # for x in row:
+            #     print(str(x)+ " ")
             if row[0]==0:
                 flag=1
             # print (str(row[0]) + " " + str(row[1])+" "+str(row[2]))
             row = cursor.fetchone()
+        # print("flag is"+str(flag))
         if flag==1:
-            cursor.execute("update location2  set lat="+lat+",lon="+lon+",flag=\'"+status[0]+"\' where id=\'"+str(number)+"\';")
-            message = client.messages \
-                .create(
-                     body="Your response has been recorded and the information will be displayed on our maps.\nTeam Adroit Staysafe",
-                     from_='+14302160382',
-                     to='+'+str(number)
-                 )
-            # print(message.sid)
-            # print(message)      
+            if number not in sent:
+                cursor.execute("insert into location2 values (\'"+str(number)+"\',"+lat+","+lon+",\'"+status[0]+"\',\'*\');")
+                message = client.messages \
+                    .create(
+                        body="Your response has been recorded and the information will be displayed on our maps.\nTeam Adroit Staysafe",
+                        from_='+14302160382',
+                        to='+917204432197'        #due to trial account regulations, only to this number
+                    )
+                sent.append(number)
+                # print(message.sid)
+                # print(message)      
         else:
             if number not in sent:
                 if notsendfirsttime==1:
+                    cursor.execute("udpate location2 set flag=\'"+status[0]+"\' where id=\'"+str(number)+"\'")
                     message = client.messages \
                         .create(
                             body="Your response has already been received and stored.\nTeam Adroit Staysafe :)",
                             from_='+14302160382',
-                            to='+'+str(number)
+                            to='+917204432197'      #due to trial account regulations, only to this number
                         )
                 
                 print(':)')
                 sent.append(number)
+                
 
         cnxn.commit()
 
         time.sleep(2)
+        
     notsendfirsttime=1
         # print("insert ignore into location2 values (\'"+str(number)+"\',"+lat+","+lon+");")
         
